@@ -10,7 +10,7 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "baldeweg/api-bundle": "^0.1.1",
-        "baldeweg/extra-bundle": "^0.2.10",
+        "baldeweg/extra-bundle": "^0.2.11",
         "composer/package-versions-deprecated": "1.11.99.2",
         "doctrine/doctrine-bundle": "^2.4",
         "doctrine/doctrine-migrations-bundle": "^3.1",
@@ -81,6 +81,7 @@
         "friendsofphp/php-cs-fixer": "^3.0",
         "mikey179/vfsstream": "^1.6",
         "rector/rector": "^0.11.33",
+        "symfony/browser-kit": "5.3.*",
         "symfony/debug-bundle": "5.3.*",
         "symfony/maker-bundle": "^1.33",
         "symfony/phpunit-bridge": "^5.3"
