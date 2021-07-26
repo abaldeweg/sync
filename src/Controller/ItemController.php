@@ -5,26 +5,30 @@ namespace App\Controller;
 use App\Entity\Item;
 use App\Form\ItemType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Baldeweg\Bundle\ApiBundle\AbstractApiController;
 
 /**
  * @Route("/api/item")
  */
-class ItemController extends AbstractController
+class ItemController extends AbstractApiController
 {
+    protected $fields = ['id', 'name', 'body'];
+
     /**
      * @Route("/", methods={"GET"})
      * @Security("is_granted('ROLE_USER')")
      */
     public function index(): JsonResponse
     {
-        return $this->json(
-            $this->getDoctrine()->getRepository(Item::class)->findByUser(
-                $this->getUser(),
-            ),
+        return $this->response(
+            $this->serializeCollection(
+                $this->getDoctrine()->getRepository(Item::class)->findByUser(
+                    $this->getUser(),
+                ),
+            )
         );
     }
 
@@ -34,7 +38,7 @@ class ItemController extends AbstractController
      */
     public function show(Item $item): JsonResponse
     {
-        return $this->json($item);
+        return $this->response($this->serialize($item));
     }
 
     /**
@@ -47,22 +51,17 @@ class ItemController extends AbstractController
         $form = $this->createForm(ItemType::class, $item);
 
         $form->submit(
-            json_decode(
-                $request->getContent(),
-                true
-            )
+            $this->submitForm($request)
         );
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($item);
             $em->flush();
 
-            return $this->json($item);
+            return $this->response($this->serialize($item));
         }
 
-        return $this->json([
-            'msg' => 'Please enter a valid item!',
-        ], 400);
+        return $this->invalid();
     }
 
     /**
@@ -74,21 +73,16 @@ class ItemController extends AbstractController
         $form = $this->createForm(ItemType::class, $item);
 
         $form->submit(
-            json_decode(
-                $request->getContent(),
-                true
-            )
+            $this->submitForm($request)
         );
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->flush();
 
-            return $this->json($item);
+            return $this->response($this->serialize($item));
         }
 
-        return $this->json([
-            'msg' => 'Please enter a valid item!',
-        ]);
+        return $this->invalid();
     }
 
     /**
@@ -101,8 +95,6 @@ class ItemController extends AbstractController
         $em->remove($item);
         $em->flush();
 
-        return $this->json([
-            'msg' => 'The item was deleted successfully.',
-        ]);
+        return $this->deleted();
     }
 }

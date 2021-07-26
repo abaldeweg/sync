@@ -21,6 +21,7 @@ class ItemTest extends WebTestCase
             'body' => 'body'
         ]);
 
+        $this->assertEquals('3', count((array)$request));
         $this->assertTrue(isset($request->id));
         $this->assertEquals('name', $request->name);
         $this->assertEquals('body', $request->body);
@@ -33,6 +34,7 @@ class ItemTest extends WebTestCase
             'body' => '2'
         ]);
 
+        $this->assertEquals('3', count((array)$request));
         $this->assertTrue(isset($request->id));
         $this->assertEquals('1', $request->name);
         $this->assertEquals('2', $request->body);
@@ -40,6 +42,7 @@ class ItemTest extends WebTestCase
         // show
         $request = $this->request('/api/item/' . $id, 'GET');
 
+        $this->assertEquals('3', count((array)$request));
         $this->assertTrue(isset($request->id));
         $this->assertEquals('1', $request->name);
         $this->assertEquals('2', $request->body);
@@ -47,6 +50,6 @@ class ItemTest extends WebTestCase
         // delete
         $request = $this->request('/api/item/' . $id, 'DELETE');
 
-        $this->assertEquals('The item was deleted successfully.', $request->msg);
+        $this->assertEquals('DELETED', $request->msg);
     }
 }
