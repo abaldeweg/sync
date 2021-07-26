@@ -10,6 +10,9 @@ class ItemTest extends WebTestCase
 
     public function testScenario()
     {
+        $date = new \DateTime();
+        $timestamp = $date->getTimestamp();
+
         // list
         $request = $this->request('/api/item/', 'GET');
 
@@ -17,26 +20,26 @@ class ItemTest extends WebTestCase
 
         // new
         $request = $this->request('/api/item/new', 'POST', [], [
-            'name' => 'name',
+            'name' => 'name-' . $timestamp,
             'body' => 'body'
         ]);
 
         $this->assertEquals('3', count((array)$request));
         $this->assertTrue(isset($request->id));
-        $this->assertEquals('name', $request->name);
+        $this->assertEquals('name-' . $timestamp, $request->name);
         $this->assertEquals('body', $request->body);
 
         $id = $request->id;
 
         // edit
         $request = $this->request('/api/item/' . $id, 'PUT', [], [
-            'name' => '1',
+            'name' => '1-' . $timestamp,
             'body' => '2'
         ]);
 
         $this->assertEquals('3', count((array)$request));
         $this->assertTrue(isset($request->id));
-        $this->assertEquals('1', $request->name);
+        $this->assertEquals('1-' . $timestamp, $request->name);
         $this->assertEquals('2', $request->body);
 
         // show
@@ -44,7 +47,7 @@ class ItemTest extends WebTestCase
 
         $this->assertEquals('3', count((array)$request));
         $this->assertTrue(isset($request->id));
-        $this->assertEquals('1', $request->name);
+        $this->assertEquals('1-' . $timestamp, $request->name);
         $this->assertEquals('2', $request->body);
 
         // delete

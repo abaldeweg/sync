@@ -7,6 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=ItemRepository::class)
+ * @ORM\Table(uniqueConstraints={@ORM\UniqueConstraint(name="item_idx", fields={"user", "name"})})
  */
 class Item
 {
