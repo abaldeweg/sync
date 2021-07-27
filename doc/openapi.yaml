@@ -6,7 +6,7 @@ info:
     description: Sync backend for apps.
 
 externalDocs:
-    description: Find out more about note
+    description: Find out more about sync
     url: https://github.com/abaldeweg/sync
 
 servers:
@@ -15,6 +15,8 @@ servers:
 tags:
     - name: user
       description: User
+    - name: item
+      description: Item
 
 paths:
     # User
@@ -150,7 +152,7 @@ paths:
     /item/:
         get:
             tags:
-                - items
+                - item
             description: Returns a list of items
             responses:
                 "200":
@@ -170,7 +172,7 @@ paths:
     /item/new:
         post:
             tags:
-                - items
+                - item
             description: Creates a new item
             requestBody:
                 required: true
@@ -194,7 +196,7 @@ paths:
     /item/{item}:
         get:
             tags:
-                - items
+                - item
             parameters:
                 - name: item
                   in: path
@@ -224,7 +226,7 @@ paths:
                                 $ref: "#/components/schemas/ErrorResponse"
         put:
             tags:
-                - items
+                - item
             parameters:
                 - name: item
                   in: path
@@ -260,7 +262,7 @@ paths:
                                 $ref: "#/components/schemas/ErrorResponse"
         delete:
             tags:
-                - items
+                - item
             parameters:
                 - name: item
                   in: path
