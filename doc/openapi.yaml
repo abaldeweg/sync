@@ -191,15 +191,15 @@ paths:
                         application/json:
                             schema:
                                 $ref: "#/components/schemas/ErrorResponse"
-    /item/{id}:
+    /item/{item}:
         get:
             tags:
                 - items
             parameters:
-                - name: id
+                - name: item
                   in: path
                   required: true
-                  description: Id of the item
+                  description: Name of the item
                   schema:
                       type: string
             description: Returns an item
@@ -226,10 +226,10 @@ paths:
             tags:
                 - items
             parameters:
-                - name: id
+                - name: item
                   in: path
                   required: true
-                  description: Id of the item
+                  description: Name of the item
                   schema:
                       type: string
             description: Updates an item
@@ -262,10 +262,10 @@ paths:
             tags:
                 - items
             parameters:
-                - name: id
+                - name: item
                   in: path
                   required: true
-                  description: Id of the item
+                  description: Name of the item
                   schema:
                       type: string
             description: Deletes an item

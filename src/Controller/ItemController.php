@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Baldeweg\Bundle\ApiBundle\AbstractApiController;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Entity;
 
 /**
  * @Route("/api/item")
@@ -33,7 +34,7 @@ class ItemController extends AbstractApiController
     }
 
     /**
-     * @Route("/{id}", methods={"GET"})
+     * @Route("/{item}", methods={"GET"})
      * @Security("is_granted('ROLE_USER') and item.getUser() === user")
      */
     public function show(Item $item): JsonResponse
@@ -65,7 +66,7 @@ class ItemController extends AbstractApiController
     }
 
     /**
-     * @Route("/{id}", methods={"PUT"})
+     * @Route("/{item}", methods={"PUT"})
      * @Security("is_granted('ROLE_USER') and item.getUser() === user")
      */
     public function edit(Request $request, Item $item): JsonResponse
@@ -86,7 +87,7 @@ class ItemController extends AbstractApiController
     }
 
     /**
-     * @Route("/{id}", methods={"DELETE"})
+     * @Route("/{item}", methods={"DELETE"})
      * @Security("is_granted('ROLE_USER') and item.getUser() === user")
      */
     public function delete(Item $item): JsonResponse

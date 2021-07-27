@@ -32,7 +32,7 @@ class ItemTest extends WebTestCase
         $id = $request->id;
 
         // edit
-        $request = $this->request('/api/item/' . $id, 'PUT', [], [
+        $request = $this->request('/api/item/name-' . $timestamp, 'PUT', [], [
             'name' => '1-' . $timestamp,
             'body' => '2'
         ]);
@@ -43,7 +43,7 @@ class ItemTest extends WebTestCase
         $this->assertEquals('2', $request->body);
 
         // show
-        $request = $this->request('/api/item/' . $id, 'GET');
+        $request = $this->request('/api/item/1-' . $timestamp, 'GET');
 
         $this->assertEquals('3', count((array)$request));
         $this->assertTrue(isset($request->id));
@@ -51,7 +51,7 @@ class ItemTest extends WebTestCase
         $this->assertEquals('2', $request->body);
 
         // delete
-        $request = $this->request('/api/item/' . $id, 'DELETE');
+        $request = $this->request('/api/item/1-' . $timestamp, 'DELETE');
 
         $this->assertEquals('DELETED', $request->msg);
     }
