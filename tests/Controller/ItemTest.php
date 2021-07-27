@@ -29,8 +29,6 @@ class ItemTest extends WebTestCase
         $this->assertEquals('name-' . $timestamp, $request->name);
         $this->assertEquals('body', $request->body);
 
-        $id = $request->id;
-
         // edit
         $request = $this->request('/api/item/name-' . $timestamp, 'PUT', [], [
             'name' => '1-' . $timestamp,
