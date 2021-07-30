@@ -2,12 +2,12 @@
 
 namespace App\Request\ParamConverter;
 
+use App\Entity\Item;
 use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
-use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Request\ParamConverter\ParamConverterInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
-use App\Entity\Item;
 
 class ItemParamConverter implements ParamConverterInterface
 {
@@ -20,7 +20,7 @@ class ItemParamConverter implements ParamConverterInterface
         $name = $configuration->getName();
         $object = $this->em->getRepository(Item::class)->findOneBy([
             'user' => $this->token->getToken()->getUser(),
-            'name' => $request->attributes->get('item')
+            'name' => $request->attributes->get('item'),
         ]);
 
         if (null === $object) {
@@ -34,7 +34,7 @@ class ItemParamConverter implements ParamConverterInterface
 
     public function supports(ParamConverter $configuration): bool
     {
-        if ($configuration->getClass() === Item::class && $configuration->getName() === 'item') {
+        if (Item::class === $configuration->getClass() && 'item' === $configuration->getName()) {
             return true;
         }
 

@@ -4,12 +4,11 @@ namespace App\Controller;
 
 use App\Entity\Item;
 use App\Form\ItemType;
+use Baldeweg\Bundle\ApiBundle\AbstractApiController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-use Baldeweg\Bundle\ApiBundle\AbstractApiController;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Entity;
 
 /**
  * @Route("/api/item")
