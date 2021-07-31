@@ -48,8 +48,7 @@ The fixtures will create an account `admin` with password `password`.
 To authenticate your users, you need to generate the SSL keys under `config/jwt/`.
 
 ```shell
-openssl genrsa -out config/jwt/private.pem -aes256 4096
-openssl rsa -pubout -in config/jwt/private.pem -out config/jwt/public.pem
+bin/console lexik:jwt:generate-keypair
 ```
 
 ## Apache Webserver
