@@ -41,6 +41,8 @@ bin/console doctrine:migrations:migrate -n
 bin/console doctrine:fixtures:load -n
 ```
 
+The fixtures will create an account `admin` with password `password`.
+
 ## Auth
 
 To authenticate your users, you need to generate the SSL keys under `config/jwt/`.
