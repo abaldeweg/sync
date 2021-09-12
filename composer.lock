@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f7787365a4166cc20dfe94c865d7f856",
+    "content-hash": "e498067fc082c11de3e05d08deb7738e",
     "packages": [
         {
             "name": "baldeweg/api-bundle",
-            "version": "v0.1.1",
+            "version": "v0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/abaldeweg/api-bundle.git",
-                "reference": "629808c8f49ad0149f192536209f8e73108e6cdc"
+                "reference": "ccbc3662110c510f80860fa580f69b9a4f17a576"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/abaldeweg/api-bundle/zipball/629808c8f49ad0149f192536209f8e73108e6cdc",
-                "reference": "629808c8f49ad0149f192536209f8e73108e6cdc",
+                "url": "https://api.github.com/repos/abaldeweg/api-bundle/zipball/ccbc3662110c510f80860fa580f69b9a4f17a576",
+                "reference": "ccbc3662110c510f80860fa580f69b9a4f17a576",
                 "shasum": ""
             },
             "require": {
@@ -56,9 +56,9 @@
             "description": "Offers tools for API's.",
             "support": {
                 "issues": "https://github.com/abaldeweg/api-bundle/issues",
-                "source": "https://github.com/abaldeweg/api-bundle/tree/v0.1.1"
+                "source": "https://github.com/abaldeweg/api-bundle/tree/v0.2.0"
             },
-            "time": "2021-06-09T13:57:42+00:00"
+            "time": "2021-07-23T15:19:29+00:00"
         },
         {
             "name": "baldeweg/extra-bundle",
