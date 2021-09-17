@@ -15,7 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class ItemController extends AbstractApiController
 {
-    protected $fields = ['id', 'name', 'body'];
+    private $fields = ['id', 'name', 'body'];
 
     /**
      * @Route("/", methods={"GET"})
@@ -23,11 +23,10 @@ class ItemController extends AbstractApiController
      */
     public function index(): JsonResponse
     {
-        return $this->response(
-            $this->serializeCollection(
-                $this->getDoctrine()->getRepository(Item::class)->findByUser(
-                    $this->getUser(),
-                ),
+        return $this->setResponse()->collection(
+            $this->fields,
+            $this->getDoctrine()->getRepository(Item::class)->findByUser(
+                $this->getUser(),
             )
         );
     }
@@ -38,7 +37,7 @@ class ItemController extends AbstractApiController
      */
     public function show(Item $item): JsonResponse
     {
-        return $this->response($this->serialize($item));
+        return $this->setResponse()->single($this->fields, $item);
     }
 
     /**
@@ -58,10 +57,10 @@ class ItemController extends AbstractApiController
             $em->persist($item);
             $em->flush();
 
-            return $this->response($this->serialize($item));
+            return $this->setResponse()->single($this->fields, $item);
         }
 
-        return $this->invalid();
+        return $this->setResponse()->invalid();
     }
 
     /**
@@ -79,10 +78,10 @@ class ItemController extends AbstractApiController
             $em = $this->getDoctrine()->getManager();
             $em->flush();
 
-            return $this->response($this->serialize($item));
+            return $this->setResponse()->single($this->fields, $item);
         }
 
-        return $this->invalid();
+        return $this->setResponse()->invalid();
     }
 
     /**
@@ -95,6 +94,6 @@ class ItemController extends AbstractApiController
         $em->remove($item);
         $em->flush();
 
-        return $this->deleted();
+        return $this->setResponse()->deleted();
     }
 }
