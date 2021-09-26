@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c82f55ab69242453e54dffcefc8e27f8",
+    "content-hash": "bfe2f93283d23cb733f2ef4cffccde15",
     "packages": [
         {
             "name": "baldeweg/api-bundle",
@@ -62,21 +62,21 @@
         },
         {
             "name": "baldeweg/extra-bundle",
-            "version": "v0.3.1",
+            "version": "v0.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/abaldeweg/extra-bundle.git",
-                "reference": "bfff78a46182f3ffd9b8b6324d479a4007f062db"
+                "reference": "b98349ad0d64c516b3aa47c7fbad2bb51b063382"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/abaldeweg/extra-bundle/zipball/bfff78a46182f3ffd9b8b6324d479a4007f062db",
-                "reference": "bfff78a46182f3ffd9b8b6324d479a4007f062db",
+                "url": "https://api.github.com/repos/abaldeweg/extra-bundle/zipball/b98349ad0d64c516b3aa47c7fbad2bb51b063382",
+                "reference": "b98349ad0d64c516b3aa47c7fbad2bb51b063382",
                 "shasum": ""
             },
             "require": {
                 "doctrine/orm": "^2.9",
-                "php": ">=8.0",
+                "php": ">=7.4",
                 "symfony/config": "^5.3",
                 "symfony/console": "^5.3",
                 "symfony/dependency-injection": "^5.3",
@@ -114,9 +114,9 @@
             "description": "Offers tools for management of users, testing and setup.",
             "support": {
                 "issues": "https://github.com/abaldeweg/extra-bundle/issues",
-                "source": "https://github.com/abaldeweg/extra-bundle/tree/v0.3.1"
+                "source": "https://github.com/abaldeweg/extra-bundle/tree/v0.4.1"
             },
-            "time": "2021-09-17T10:31:05+00:00"
+            "time": "2021-09-26T10:01:20+00:00"
         },
         {
             "name": "composer/package-versions-deprecated",
