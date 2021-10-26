@@ -193,12 +193,6 @@
     "rector/rector": {
         "version": "0.11.33"
     },
-    "rollbar/rollbar": {
-        "version": "v2.1.0"
-    },
-    "rollbar/rollbar-php-symfony-bundle": {
-        "version": "v4.0.0"
-    },
     "sensio/framework-extra-bundle": {
         "version": "5.2",
         "recipe": {
@@ -449,9 +443,6 @@
     },
     "symfony/security-http": {
         "version": "v5.3.3"
-    },
-    "symfony/serializer": {
-        "version": "v5.3.2"
     },
     "symfony/service-contracts": {
         "version": "v2.4.0"

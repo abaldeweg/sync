@@ -1,4 +1,0 @@
-rollbar:
-    enabled: true
-    access_token: '%env(ROLLBAR_TOKEN)%'
-    environment: production

@@ -15,10 +15,3 @@ monolog:
             type: console
             process_psr_3_messages: false
             channels: ["!event", "!doctrine"]
-        rollbarNotFound:
-            type: fingers_crossed
-            handler: rollbar
-            excluded_http_codes: [404]
-        rollbar:
-            type: service
-            id: Rollbar\Monolog\Handler\RollbarHandler
